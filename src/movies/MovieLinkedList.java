@@ -44,17 +44,16 @@ public class MovieLinkedList implements MovieList {
 
     // handles the case when you are putting at beginning of node
     // and there are other nodes
-    if (index == 1) {
-      newNode.setNext(this.head.getNext());
+    if (index == 0) {
+      newNode.setNext(this.head);
       this.head = newNode;
+    } else {
+      for (int i = 0; i < index - 1; i++) {
+        currentNode = currentNode.getNext();
+      }
+      newNode.setNext(currentNode.getNext());
+      currentNode.setNext(newNode);
     }
-
-    // else
-    for (int i = 0; i < index - 1; i++) {
-      currentNode = currentNode.getNext();
-    }
-    newNode.setNext(currentNode.getNext());
-    currentNode.setNext(newNode);
 
   }
 
@@ -109,6 +108,38 @@ public class MovieLinkedList implements MovieList {
     }
 
     return false;
+  }
+
+  /**
+   * Removes element from linked list based on index if it is present.
+   * If this list does not contain the movie, it is unchanged.
+   *
+   * @param index index to be removed, if present
+   * @return true if the movie was found; false otherwise
+   */
+  public boolean remove(int index) {
+    if (index > this.getLength() || index < 0){
+      return false;
+    }
+
+
+    // check the first instance
+    if (index == 0) {
+      this.head = this.head.getNext();
+      this.length--;
+      return true;
+    }
+
+    // check the rest
+    MovieNode current = this.head;
+    for (int i = 0; i < index - 1; i++){
+      current = current.getNext();
+    }
+
+    current.setNext(current.getNext().getNext());
+
+    return true;
+
   }
 
 
@@ -211,5 +242,117 @@ public class MovieLinkedList implements MovieList {
       return null;
     }
     return this.head.getMovie();
+  }
+
+
+
+
+  public void sort(){
+    if (this.getLength() <2){
+      return;
+    }
+
+    for (int j = 0; j < this.length - 1; j++){
+      MovieNode current = this.head;
+      for (int i = 0; i < this.length - 1; i++){
+        if (current.getMovie().compareTo(current.getNext().getMovie()) > 0){
+          MovieNode temp = new MovieNode(current.getMovie());
+          temp.setNext(current.getNext().getNext());
+          current.getNext().setNext(temp);
+          this.remove(i);
+          current = current.getNext();
+        }
+        current = current.getNext();
+
+      }
+    }
+  }
+
+  private void sortByTitle(){
+    if (this.getLength() <2){
+      return;
+    }
+
+    for (int j = 0; j < this.length - 1; j++){
+      MovieNode current = this.head;
+      for (int i = 0; i < this.length - 1; i++){
+        if (current.getMovie().getTitle().compareToIgnoreCase(current.getNext().getMovie().getTitle()) > 0){
+          MovieNode temp = new MovieNode(current.getMovie());
+          temp.setNext(current.getNext().getNext());
+          current.getNext().setNext(temp);
+          this.remove(i);
+          current = current.getNext();
+        }
+        current = current.getNext();
+
+      }
+    }
+  }
+
+  private void sortByYear(){
+    if (this.getLength() <2){
+      return;
+    }
+
+    for (int j = 0; j < this.length - 1; j++){
+      MovieNode current = this.head;
+      for (int i = 0; i < this.length - 1; i++){
+        if (current.getMovie().getYear() - (current.getNext().getMovie().getYear()) > 0){
+          MovieNode temp = new MovieNode(current.getMovie());
+          temp.setNext(current.getNext().getNext());
+          current.getNext().setNext(temp);
+          this.remove(i);
+          current = current.getNext();
+        }
+        current = current.getNext();
+
+      }
+    }
+  }
+
+  private void sortByDirector(){
+    if (this.getLength() <2){
+      return;
+    }
+
+    for (int j = 0; j < this.length - 1; j++){
+      MovieNode current = this.head;
+      for (int i = 0; i < this.length - 1; i++){
+        if (current.getMovie().getDirector().toString().compareToIgnoreCase(current.getNext().getMovie().getDirector().toString()) > 0){
+          MovieNode temp = new MovieNode(current.getMovie());
+          temp.setNext(current.getNext().getNext());
+          current.getNext().setNext(temp);
+          this.remove(i);
+          current = current.getNext();
+        }
+        current = current.getNext();
+
+      }
+    }
+  }
+
+  public void sort(SortBy sortBy){
+    if (sortBy == SortBy.TITLE){
+      this.sortByTitle();
+    }
+    if (sortBy == SortBy.YEAR){
+      this.sortByYear();
+    }
+    if (sortBy == SortBy.DIRECTOR_NAME){
+      this.sortByDirector();
+    }
+
+
+
+  }
+
+  public void printList(){
+    MovieNode current = this.head;
+    while (current != null){
+      System.out.println(current.getMovie().toString());
+      current = current.getNext();
+
+    }
+
   }
 }

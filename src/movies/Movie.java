@@ -11,9 +11,9 @@ public class Movie implements Comparable<Movie> {
   /**
    * Constructs a Movie object and initializes it to the movie's title, director and year.
    *
-   * @param title     the title of this movie
-   * @param director  the name of the movie's director
-   * @param year      the year the movie was released
+   * @param title    the title of this movie
+   * @param director the name of the movie's director
+   * @param year     the year the movie was released
    */
   public Movie(String title, Person director, int year) {
     this.title = title;
@@ -57,19 +57,20 @@ public class Movie implements Comparable<Movie> {
 
   @Override
   public int compareTo(Movie o) {
-    int difference = this.title.compareTo(o.title);
+    int difference = this.title.toLowerCase().compareTo(o.title.toLowerCase());
     if (difference != 0) {
       return difference;
     }
 
-    difference = this.director.toString().compareTo(o.director.toString());
+    difference = this.director.toString().toLowerCase().compareTo(o.director.toString().toLowerCase());
     if (difference != 0) {
       return difference;
     }
     return this.year - o.getYear();
   }
 
-  @Override
-  public bool equals(Movie o){
+  public boolean equals(Movie o){
+    return this.compareTo(o) == 0;
   }
+
 }

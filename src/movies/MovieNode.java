@@ -13,7 +13,14 @@ public class MovieNode {
   }
 
   public void addNode(MovieNode nextNode) {
-    this.next = nextNode;
+    if (this.getNext() == null){
+      nextNode.setNext(null);
+      this.setNext(nextNode);
+    } else {
+      nextNode.setNext(this.getNext());
+      this.setNext(nextNode);
+    }
+
 
   }
 
