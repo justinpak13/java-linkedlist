@@ -50,6 +50,12 @@ public class MovieLinkedListTest {
   Movie movie27;
 
 
+  MovieLinkedList sortedByYear = new MovieLinkedList();
+  MovieLinkedList sortedByDirector = new MovieLinkedList();
+  MovieLinkedList sortedByTitle = new MovieLinkedList();
+
+  MovieLinkedList sortedTotal = new MovieLinkedList();
+
   /**
    * Set up for the tests.
    */
@@ -84,6 +90,103 @@ public class MovieLinkedListTest {
     movie25 = new Movie("Funny Games",new Person("Michael", "Haneke"),1997);
     movie26 = new Movie("Selma",new Person("Ava", "DuVernay"),2014);
     movie27 = new Movie("Ghostbusters",new Person("Ivan","Reitman"),1984);
+
+    sortedByYear.add(movie18);
+    sortedByYear.add(movie10);
+    sortedByYear.add(movie6);
+    sortedByYear.add(movie23);
+    sortedByYear.add(movie24);
+    sortedByYear.add(movie27);
+    sortedByYear.add(movie14);
+    sortedByYear.add(movie8);
+    sortedByYear.add(movie5);
+    sortedByYear.add(movie9);
+    sortedByYear.add(movie12);
+    sortedByYear.add(movie16);
+    sortedByYear.add(movie25);
+    sortedByYear.add(movie11);
+    sortedByYear.add(movie22);
+    sortedByYear.add(movie15);
+    sortedByYear.add(movie19);
+    sortedByYear.add(movie7);
+    sortedByYear.add(movie13);
+    sortedByYear.add(movie26);
+    sortedByYear.add(movie20);
+    sortedByYear.add(movie21);
+    sortedByYear.add(movie17);
+
+    sortedByTitle.add(movie15);
+    sortedByTitle.add(movie11);
+    sortedByTitle.add(movie12);
+    sortedByTitle.add(movie19);
+    sortedByTitle.add(movie25);
+    sortedByTitle.add(movie20);
+    sortedByTitle.add(movie27);
+    sortedByTitle.add(movie13);
+    sortedByTitle.add(movie17);
+    sortedByTitle.add(movie9);
+    sortedByTitle.add(movie16);
+    sortedByTitle.add(movie8);
+    sortedByTitle.add(movie26);
+    sortedByTitle.add(movie22);
+    sortedByTitle.add(movie24);
+    sortedByTitle.add(movie18);
+    sortedByTitle.add(movie7);
+    sortedByTitle.add(movie6);
+    sortedByTitle.add(movie23);
+    sortedByTitle.add(movie10);
+    sortedByTitle.add(movie21);
+    sortedByTitle.add(movie5);
+    sortedByTitle.add(movie14);
+
+    sortedByDirector.add(movie24);
+    sortedByDirector.add(movie26);
+    sortedByDirector.add(movie18);
+    sortedByDirector.add(movie17);
+    sortedByDirector.add(movie21);
+    sortedByDirector.add(movie7);
+    sortedByDirector.add(movie13);
+    sortedByDirector.add(movie15);
+    sortedByDirector.add(movie11);
+    sortedByDirector.add(movie6);
+    sortedByDirector.add(movie23);
+    sortedByDirector.add(movie5);
+    sortedByDirector.add(movie27);
+    sortedByDirector.add(movie14);
+    sortedByDirector.add(movie19);
+    sortedByDirector.add(movie25);
+    sortedByDirector.add(movie20);
+    sortedByDirector.add(movie9);
+    sortedByDirector.add(movie16);
+    sortedByDirector.add(movie12);
+    sortedByDirector.add(movie10);
+    sortedByDirector.add(movie22);
+    sortedByDirector.add(movie8);
+
+    sortedTotal.add(movie15);
+    sortedTotal.add(movie11);
+    sortedTotal.add(movie12);
+    sortedTotal.add(movie25);
+    sortedTotal.add(movie19);
+    sortedTotal.add(movie27);
+    sortedTotal.add(movie20);
+    sortedTotal.add(movie13);
+    sortedTotal.add(movie17);
+    sortedTotal.add(movie9);
+    sortedTotal.add(movie16);
+    sortedTotal.add(movie8);
+    sortedTotal.add(movie26);
+    sortedTotal.add(movie24);
+    sortedTotal.add(movie22);
+    sortedTotal.add(movie18);
+    sortedTotal.add(movie7);
+    sortedTotal.add(movie6);
+    sortedTotal.add(movie23);
+    sortedTotal.add(movie10);
+    sortedTotal.add(movie21);
+    sortedTotal.add(movie5);
+    sortedTotal.add(movie14);
+
   }
 
   /**
@@ -95,8 +198,8 @@ public class MovieLinkedListTest {
     testList.add(0, movie1);
     assertEquals(testList.peek(), movie1);
     testList.add(1, movie2);
-    assertEquals(testList.peek(), movie2);
-    assertNotEquals(testList.peek(), movie1);
+    assertEquals(testList.peek(), movie1);
+    assertNotEquals(testList.peek(), movie2);
 
     assertEquals(testList.getLength(), 2);
     assertEquals(testList.getLength(), 2);
@@ -255,30 +358,13 @@ public class MovieLinkedListTest {
 
   }
 
+  /**
+   * Test function to determine whether the sort by year function works correctly.
+   */
   @Test
-  public void testSortTitle(){
+  public void testSortingYear(){
     MovieLinkedList totalList = new MovieLinkedList();
-    totalList.add(movie1);
-    totalList.add(movie2);
-    totalList.add(movie4);
-    totalList.add(movie3);
-
-    totalList.printList();
-
-    System.out.println("\nsorted\n");
-    totalList.sort();
-    totalList.printList();
-
-  }
-
-  @Test
-  public void testFullListSort(){
-    MovieLinkedList totalList = new MovieLinkedList();
-    totalList.add(movie1);
     totalList.add(movie6);
-    totalList.add(movie2);
-    totalList.add(movie3);
-    totalList.add(movie4);
     totalList.add(movie5);
     totalList.add(movie7);
     totalList.add(movie8);
@@ -302,55 +388,119 @@ public class MovieLinkedListTest {
     totalList.add(movie26);
     totalList.add(movie27);
 
-    totalList.printList();
 
-
-    System.out.println("\nsorted\n");
-    totalList.sort();
-
-    totalList.printList();
-
-  }
-
-  @Test
-  public void testSorting(){
-    MovieLinkedList totalList = new MovieLinkedList();
-    totalList.add(movie1);
-    totalList.add(movie6);
-    totalList.add(movie2);
-    totalList.add(movie3);
-    totalList.add(movie4);
-    totalList.add(movie5);
-    totalList.add(movie7);
-    totalList.add(movie8);
-    totalList.add(movie9);
-    totalList.add(movie10);
-    totalList.add(movie11);
-    totalList.add(movie12);
-    totalList.add(movie13);
-    totalList.add(movie14);
-    totalList.add(movie15);
-    totalList.add(movie16);
-    totalList.add(movie17);
-    totalList.add(movie18);
-    totalList.add(movie19);
-    totalList.add(movie20);
-    totalList.add(movie21);
-    totalList.add(movie22);
-    totalList.add(movie23);
-    totalList.add(movie24);
-    totalList.add(movie25);
-    totalList.add(movie26);
-    totalList.add(movie27);
-
-    totalList.printList();
-
-
-    System.out.println("\nsorted\n");
     totalList.sort(SortBy.YEAR);
 
-    totalList.printList();
 
+    assertTrue(totalList.compareLists(sortedByYear));
+  }
+
+  /**
+   * Test function to determine whether the sort by title function works correctly.
+   */
+  @Test
+  public void testSortingTitle(){
+    MovieLinkedList totalList = new MovieLinkedList();
+    totalList.add(movie6);
+    totalList.add(movie5);
+    totalList.add(movie7);
+    totalList.add(movie8);
+    totalList.add(movie9);
+    totalList.add(movie10);
+    totalList.add(movie11);
+    totalList.add(movie12);
+    totalList.add(movie13);
+    totalList.add(movie14);
+    totalList.add(movie15);
+    totalList.add(movie16);
+    totalList.add(movie17);
+    totalList.add(movie18);
+    totalList.add(movie19);
+    totalList.add(movie20);
+    totalList.add(movie21);
+    totalList.add(movie22);
+    totalList.add(movie23);
+    totalList.add(movie24);
+    totalList.add(movie25);
+    totalList.add(movie26);
+    totalList.add(movie27);
+
+    totalList.sort(SortBy.TITLE);
+
+
+    assertTrue(totalList.compareLists(sortedByTitle));
+  }
+
+  /**
+   * Test function to determine whether the sort by director name function works correctly.
+   */
+  @Test
+  public void testSortingDirector(){
+    MovieLinkedList totalList = new MovieLinkedList();
+    totalList.add(movie6);
+    totalList.add(movie5);
+    totalList.add(movie7);
+    totalList.add(movie8);
+    totalList.add(movie9);
+    totalList.add(movie10);
+    totalList.add(movie11);
+    totalList.add(movie12);
+    totalList.add(movie13);
+    totalList.add(movie14);
+    totalList.add(movie15);
+    totalList.add(movie16);
+    totalList.add(movie17);
+    totalList.add(movie18);
+    totalList.add(movie19);
+    totalList.add(movie20);
+    totalList.add(movie21);
+    totalList.add(movie22);
+    totalList.add(movie23);
+    totalList.add(movie24);
+    totalList.add(movie25);
+    totalList.add(movie26);
+    totalList.add(movie27);
+
+    totalList.sort(SortBy.DIRECTOR_NAME);
+
+
+    assertTrue(totalList.compareLists(sortedByDirector));
+  }
+
+
+  /**
+   * Test function to determine whether the default sort function works correctly.
+   */
+  @Test
+  public void testFullSort(){
+    MovieLinkedList totalList = new MovieLinkedList();
+    totalList.add(movie6);
+    totalList.add(movie5);
+    totalList.add(movie7);
+    totalList.add(movie8);
+    totalList.add(movie9);
+    totalList.add(movie10);
+    totalList.add(movie11);
+    totalList.add(movie12);
+    totalList.add(movie13);
+    totalList.add(movie14);
+    totalList.add(movie15);
+    totalList.add(movie16);
+    totalList.add(movie17);
+    totalList.add(movie18);
+    totalList.add(movie19);
+    totalList.add(movie20);
+    totalList.add(movie21);
+    totalList.add(movie22);
+    totalList.add(movie23);
+    totalList.add(movie24);
+    totalList.add(movie25);
+    totalList.add(movie26);
+    totalList.add(movie27);
+
+    totalList.sort();
+
+    assertTrue(totalList.compareLists(sortedTotal));
 
   }
 }

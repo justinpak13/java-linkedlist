@@ -16,6 +16,10 @@ public class MovieLinkedList implements MovieList {
     this.head = null;
   }
 
+  private void increaseLength(){
+    this.length ++;
+  }
+
 
   /**
    * Add a Movie to the list at the specified position.
@@ -233,6 +237,26 @@ public class MovieLinkedList implements MovieList {
   }
 
   /**
+   * swaps two elements in the linked list. The element at index position and the one prior.
+   * @param index position in which to swap
+   */
+  private void swap(int index){
+    MovieNode current = this.head;
+    for (int i = 0; i < index - 1; i++){
+      current = current.getNext();
+    }
+
+    MovieNode temp = new MovieNode(current.getMovie());
+    temp.setNext(current.getNext().getNext());
+    current.getNext().setNext(temp);
+    this.remove(index - 1);
+    if (index == 1){
+      this.increaseLength();
+
+    }
+  }
+
+  /**
    * checks the head of the list.
    * @return the first movie node if the list is greater than 0 else returns null
    */
@@ -245,92 +269,97 @@ public class MovieLinkedList implements MovieList {
   }
 
 
-
-
+  /**
+   * Default sort function with no parameters. Sorts by year, then director, then title.
+   */
   public void sort(){
-    if (this.getLength() <2){
-      return;
-    }
-
-    for (int j = 0; j < this.length - 1; j++){
-      MovieNode current = this.head;
-      for (int i = 0; i < this.length - 1; i++){
-        if (current.getMovie().compareTo(current.getNext().getMovie()) > 0){
-          MovieNode temp = new MovieNode(current.getMovie());
-          temp.setNext(current.getNext().getNext());
-          current.getNext().setNext(temp);
-          this.remove(i);
-          current = current.getNext();
-        }
-        current = current.getNext();
-
-      }
-    }
+    this.sortByYear();
+    this.sortByDirector();
+    this.sortByTitle();
   }
 
+  /**
+   * Sorts the linked list by title of movie.
+   */
   private void sortByTitle(){
     if (this.getLength() <2){
       return;
     }
 
-    for (int j = 0; j < this.length - 1; j++){
-      MovieNode current = this.head;
-      for (int i = 0; i < this.length - 1; i++){
-        if (current.getMovie().getTitle().compareToIgnoreCase(current.getNext().getMovie().getTitle()) > 0){
-          MovieNode temp = new MovieNode(current.getMovie());
-          temp.setNext(current.getNext().getNext());
-          current.getNext().setNext(temp);
-          this.remove(i);
+    int length = this.getLength();
+
+    for (int j = 0; j < length; j++){
+      MovieNode previous = this.head;
+      MovieNode current = this.head.getNext();
+      for (int i = 1; i < length; i++){
+        if (previous.getMovie().getTitle().compareToIgnoreCase(current.getMovie().getTitle())> 0){
+          this.swap(i);
+          previous = current;
           current = current.getNext();
         }
+        previous = current;
         current = current.getNext();
-
       }
     }
+
   }
 
+  /**
+   * Sorts the linked list by year movie was made.
+   */
   private void sortByYear(){
     if (this.getLength() <2){
       return;
     }
 
-    for (int j = 0; j < this.length - 1; j++){
-      MovieNode current = this.head;
-      for (int i = 0; i < this.length - 1; i++){
-        if (current.getMovie().getYear() - (current.getNext().getMovie().getYear()) > 0){
-          MovieNode temp = new MovieNode(current.getMovie());
-          temp.setNext(current.getNext().getNext());
-          current.getNext().setNext(temp);
-          this.remove(i);
+
+    int length = this.getLength();
+
+    for (int j = 0; j < length; j++){
+      MovieNode previous = this.head;
+      MovieNode current = this.head.getNext();
+      for (int i = 1; i < length; i++){
+        if (previous.getMovie().getYear()  - current.getMovie().getYear() > 0){
+          this.swap(i);
+          previous = current;
           current = current.getNext();
         }
+        previous = current;
         current = current.getNext();
-
       }
     }
+
   }
 
+  /**
+   * Sorts linked list by director first and last name.
+   */
   private void sortByDirector(){
     if (this.getLength() <2){
       return;
     }
 
-    for (int j = 0; j < this.length - 1; j++){
-      MovieNode current = this.head;
-      for (int i = 0; i < this.length - 1; i++){
-        if (current.getMovie().getDirector().toString().compareToIgnoreCase(current.getNext().getMovie().getDirector().toString()) > 0){
-          MovieNode temp = new MovieNode(current.getMovie());
-          temp.setNext(current.getNext().getNext());
-          current.getNext().setNext(temp);
-          this.remove(i);
+    int length = this.getLength();
+
+    for (int j = 0; j < length; j++){
+      MovieNode previous = this.head;
+      MovieNode current = this.head.getNext();
+      for (int i = 1; i < length; i++){
+        if (previous.getMovie().getDirector().toString().compareToIgnoreCase(current.getMovie().getDirector().toString()) > 0){
+          this.swap(i);
+          previous = current;
           current = current.getNext();
         }
+        previous = current;
         current = current.getNext();
-
       }
     }
   }
 
+  /**
+   * Overloading of sort function that takes in a parameter to specify sorting.
+   * @param sortBy an enum indicating how to sort the linked list
+   */
   public void sort(SortBy sortBy){
     if (sortBy == SortBy.TITLE){
       this.sortByTitle();
@@ -346,6 +375,9 @@ public class MovieLinkedList implements MovieList {
 
   }
 
+  /**
+   * Prints the linked list in order
+   */
   public void printList(){
     MovieNode current = this.head;
     while (current != null){
@@ -353,6 +385,33 @@ public class MovieLinkedList implements MovieList {
       current = current.getNext();
 
     }
+
+  }
+
+  /**
+   * compares the list to another list to see if the contents and ordering are the same.
+   * @param otherList another movie linked list
+   * @return true if the same, false otherwise
+   */
+  public boolean compareLists(MovieLinkedList otherList){
+    if (this.getLength() != otherList.getLength()) {
+      System.out.println(this.getLength());
+      System.out.println(otherList.getLength());
+      return false;
+    }
+
+    while (this.head != null) {
+      if (!this.head.getMovie().equals(otherList.head.getMovie())){
+        System.out.println(this.head.getMovie());
+        System.out.println(otherList.head.getMovie());
+        return false;
+      }
+      this.remove();
+      otherList.remove();
+    }
+
+    return otherList.head == null;
+
 
   }
 }

@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c08d52b-e1de-408d-b1cc-4a21b1a6da5a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/movies/SortBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieLinkedListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieLinkedListTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/movies/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movies/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/movies/MovieLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movies/MovieLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/movies/MovieNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movies/MovieNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +49,13 @@
     "JUnit.MovieLinkedListTest.testAddExceptionGreaterThanLength.executor": "Run",
     "JUnit.MovieLinkedListTest.testAddExceptionLessThanZero.executor": "Run",
     "JUnit.MovieLinkedListTest.testFullListSort.executor": "Run",
+    "JUnit.MovieLinkedListTest.testFullSort.executor": "Run",
     "JUnit.MovieLinkedListTest.testSortTitle.executor": "Run",
+    "JUnit.MovieLinkedListTest.testSorting.executor": "Run",
+    "JUnit.MovieLinkedListTest.testSortingDirector.executor": "Run",
+    "JUnit.MovieLinkedListTest.testSortingTitle.executor": "Run",
+    "JUnit.MovieLinkedListTest.testSortingYear.executor": "Run",
+    "JUnit.MovieLinkedListTest.testSwap.executor": "Run",
     "JUnit.MovieTest.executor": "Run",
     "JUnit.MovieTest.testCompareTo.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -83,7 +85,7 @@
       <recent name="movies" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MovieLinkedListTest.testSorting">
+  <component name="RunManager" selected="JUnit.MovieLinkedListTest.testFullSort">
     <configuration name="MovieLinkedListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <option name="PACKAGE_NAME" value="" />
@@ -93,41 +95,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieLinkedListTest.moviesDirectedBy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MovieLinkedListTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MovieLinkedListTest" />
-      <option name="METHOD_NAME" value="moviesDirectedBy" />
+      <option name="METHOD_NAME" value="add" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieLinkedListTest.testFullListSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MovieLinkedListTest.testFullSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MovieLinkedListTest" />
-      <option name="METHOD_NAME" value="testFullListSort" />
+      <option name="METHOD_NAME" value="testFullSort" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieLinkedListTest.testSortTitle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MovieLinkedListTest.testSortingDirector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MovieLinkedListTest" />
-      <option name="METHOD_NAME" value="testSortTitle" />
+      <option name="METHOD_NAME" value="testSortingDirector" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieLinkedListTest.testSorting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MovieLinkedListTest.testSortingTitle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MovieLinkedListTest" />
-      <option name="METHOD_NAME" value="testSorting" />
+      <option name="METHOD_NAME" value="testSortingTitle" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MovieLinkedListTest.testSorting" />
-        <item itemvalue="JUnit.MovieLinkedListTest.testFullListSort" />
-        <item itemvalue="JUnit.MovieLinkedListTest.testSortTitle" />
-        <item itemvalue="JUnit.MovieLinkedListTest.moviesDirectedBy" />
+        <item itemvalue="JUnit.MovieLinkedListTest.testFullSort" />
         <item itemvalue="JUnit.MovieLinkedListTest" />
+        <item itemvalue="JUnit.MovieLinkedListTest.add" />
+        <item itemvalue="JUnit.MovieLinkedListTest.testSortingDirector" />
+        <item itemvalue="JUnit.MovieLinkedListTest.testSortingTitle" />
       </list>
     </recent_temporary>
   </component>
@@ -160,5 +162,12 @@
       <updated>1706832343892</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="movies.MovieLinkedList" memberName="length" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
