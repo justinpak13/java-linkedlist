@@ -62,14 +62,15 @@ public class Movie implements Comparable<Movie> {
       return difference;
     }
 
-    difference = this.director.toString().toLowerCase().compareTo(o.director.toString().toLowerCase());
+    difference = this.director.toString().toLowerCase()
+    .compareTo(o.director.toString().toLowerCase());
     if (difference != 0) {
       return difference;
     }
     return this.year - o.getYear();
   }
 
-  public boolean equals(Movie o){
+  public boolean equals(Movie o) {
     return this.compareTo(o) == 0;
   }
 

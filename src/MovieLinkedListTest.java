@@ -67,29 +67,29 @@ public class MovieLinkedListTest {
     movie2 = new Movie("Paddington 2", director1, 2005);
     movie3 = new Movie("Star Wars", director2, 2005);
     movie4 = new Movie("Lord of the Rings", director2, 2002);
-    movie5 = new Movie("the shawshank redemption",new Person("Frank","Darabont"),1994);
-    movie6 = new Movie("the godfather",new Person("francis ford","coppola"),1972);
-    movie7 = new Movie("the dark knight",new Person("Christopher", "Nolan"),2008);
-    movie8 = new Movie("schindler's list",new Person("steven", "spielberg"),1993);
-    movie9 = new Movie("pulp fiction",new Person("quentin", "tarantino"),1994);
-    movie10 = new Movie("the good the bad and the ugly",new Person("Sergio","Leone"),1966);
-    movie11 = new Movie("fight club",new Person("david", "fincher"),1999);
-    movie12 = new Movie("forrest gump",new Person("robert", "Zemeckis"),1994);
-    movie13 = new Movie("inception",new Person("Christopher","Nolan"),2010);
-    movie14 = new Movie("the silence of the lambs",new Person("Jonathan","Demme"),1991);
-    movie15 = new Movie("batman begins",new Person("christopher","nolan"),2005);
-    movie16 = new Movie("Pulp Fiction",new Person("Quentin", "Tarantino"),1994);
-    movie17 = new Movie("Nomadland",new Person("Chloé", "zhao"),2020);
-    movie18 = new Movie("the apartment",new Person("billy", "wilder"),1960);
-    movie19 = new Movie("Funny Games",new Person("Michael", "Haneke"),2007);
-    movie20 = new Movie("Ghostbusters",new Person("Paul", "Feig"),2016);
-    movie21 = new Movie("The Rider",new Person("Chloé", "Zhao"),2017);
-    movie22 = new Movie("Solaris",new Person("Steven", "Soderbergh"),2002);
-    movie23 = new Movie("The Godfather",new Person("Francis Ford", "Coppola"),1972);
-    movie24 = new Movie("Solaris",new Person("Andrei", "Tarkovsky"),1972);
-    movie25 = new Movie("Funny Games",new Person("Michael", "Haneke"),1997);
-    movie26 = new Movie("Selma",new Person("Ava", "DuVernay"),2014);
-    movie27 = new Movie("Ghostbusters",new Person("Ivan","Reitman"),1984);
+    movie5 = new Movie("the shawshank redemption", new Person("Frank", "Darabont"), 1994);
+    movie6 = new Movie("the godfather", new Person("francis ford", "coppola"), 1972);
+    movie7 = new Movie("the dark knight", new Person("Christopher", "Nolan"), 2008);
+    movie8 = new Movie("schindler's list", new Person("steven", "spielberg"), 1993);
+    movie9 = new Movie("pulp fiction", new Person("quentin", "tarantino"), 1994);
+    movie10 = new Movie("the good the bad and the ugly", new Person("Sergio", "Leone"), 1966);
+    movie11 = new Movie("fight club", new Person("david", "fincher"), 1999);
+    movie12 = new Movie("forrest gump", new Person("robert", "Zemeckis"), 1994);
+    movie13 = new Movie("inception", new Person("Christopher", "Nolan"), 2010);
+    movie14 = new Movie("the silence of the lambs", new Person("Jonathan", "Demme"), 1991);
+    movie15 = new Movie("batman begins", new Person("christopher", "nolan"), 2005);
+    movie16 = new Movie("Pulp Fiction", new Person("Quentin", "Tarantino"), 1994);
+    movie17 = new Movie("Nomadland", new Person("Chloé", "zhao"), 2020);
+    movie18 = new Movie("the apartment", new Person("billy", "wilder"), 1960);
+    movie19 = new Movie("Funny Games", new Person("Michael", "Haneke"), 2007);
+    movie20 = new Movie("Ghostbusters", new Person("Paul", "Feig"), 2016);
+    movie21 = new Movie("The Rider", new Person("Chloé", "Zhao"), 2017);
+    movie22 = new Movie("Solaris", new Person("Steven", "Soderbergh"), 2002);
+    movie23 = new Movie("The Godfather", new Person("Francis Ford", "Coppola"), 1972);
+    movie24 = new Movie("Solaris", new Person("Andrei", "Tarkovsky"), 1972);
+    movie25 = new Movie("Funny Games", new Person("Michael", "Haneke"), 1997);
+    movie26 = new Movie("Selma", new Person("Ava", "DuVernay"), 2014);
+    movie27 = new Movie("Ghostbusters", new Person("Ivan", "Reitman"), 1984);
 
     sortedByYear.add(movie18);
     sortedByYear.add(movie10);
@@ -362,7 +362,7 @@ public class MovieLinkedListTest {
    * Test function to determine whether the sort by year function works correctly.
    */
   @Test
-  public void testSortingYear(){
+  public void testSortingYear() {
     MovieLinkedList totalList = new MovieLinkedList();
     totalList.add(movie6);
     totalList.add(movie5);
@@ -399,7 +399,7 @@ public class MovieLinkedListTest {
    * Test function to determine whether the sort by title function works correctly.
    */
   @Test
-  public void testSortingTitle(){
+  public void testSortingTitle() {
     MovieLinkedList totalList = new MovieLinkedList();
     totalList.add(movie6);
     totalList.add(movie5);
@@ -435,7 +435,7 @@ public class MovieLinkedListTest {
    * Test function to determine whether the sort by director name function works correctly.
    */
   @Test
-  public void testSortingDirector(){
+  public void testSortingDirector() {
     MovieLinkedList totalList = new MovieLinkedList();
     totalList.add(movie6);
     totalList.add(movie5);
@@ -472,7 +472,7 @@ public class MovieLinkedListTest {
    * Test function to determine whether the default sort function works correctly.
    */
   @Test
-  public void testFullSort(){
+  public void testFullSort() {
     MovieLinkedList totalList = new MovieLinkedList();
     totalList.add(movie6);
     totalList.add(movie5);

@@ -16,8 +16,8 @@ public class MovieLinkedList implements MovieList {
     this.head = null;
   }
 
-  private void increaseLength(){
-    this.length ++;
+  private void increaseLength() {
+    this.length++;
   }
 
 
@@ -122,7 +122,7 @@ public class MovieLinkedList implements MovieList {
    * @return true if the movie was found; false otherwise
    */
   public boolean remove(int index) {
-    if (index > this.getLength() || index < 0){
+    if (index > this.getLength() || index < 0) {
       return false;
     }
 
@@ -136,7 +136,7 @@ public class MovieLinkedList implements MovieList {
 
     // check the rest
     MovieNode current = this.head;
-    for (int i = 0; i < index - 1; i++){
+    for (int i = 0; i < index - 1; i++) {
       current = current.getNext();
     }
 
@@ -240,9 +240,9 @@ public class MovieLinkedList implements MovieList {
    * swaps two elements in the linked list. The element at index position and the one prior.
    * @param index position in which to swap
    */
-  private void swap(int index){
+  private void swap(int index) {
     MovieNode current = this.head;
-    for (int i = 0; i < index - 1; i++){
+    for (int i = 0; i < index - 1; i++) {
       current = current.getNext();
     }
 
@@ -250,7 +250,7 @@ public class MovieLinkedList implements MovieList {
     temp.setNext(current.getNext().getNext());
     current.getNext().setNext(temp);
     this.remove(index - 1);
-    if (index == 1){
+    if (index == 1) {
       this.increaseLength();
 
     }
@@ -272,27 +272,43 @@ public class MovieLinkedList implements MovieList {
   /**
    * Default sort function with no parameters. Sorts by year, then director, then title.
    */
-  public void sort(){
+  public void sort() {
     this.sortByYear();
     this.sortByDirector();
     this.sortByTitle();
   }
 
   /**
+   * Overloading of sort function that takes in a parameter to specify sorting.
+   * @param sortBy an enum indicating how to sort the linked list
+   */
+  public void sort(SortBy sortBy) {
+    if (sortBy == SortBy.TITLE) {
+      this.sortByTitle();
+    }
+    if (sortBy == SortBy.YEAR) {
+      this.sortByYear();
+    }
+    if (sortBy == SortBy.DIRECTOR_NAME) {
+      this.sortByDirector();
+    }
+  }
+
+  /**
    * Sorts the linked list by title of movie.
    */
-  private void sortByTitle(){
-    if (this.getLength() <2){
+  private void sortByTitle() {
+    if (this.getLength() < 2) {
       return;
     }
 
     int length = this.getLength();
 
-    for (int j = 0; j < length; j++){
+    for (int j = 0; j < length; j++) {
       MovieNode previous = this.head;
       MovieNode current = this.head.getNext();
-      for (int i = 1; i < length; i++){
-        if (previous.getMovie().getTitle().compareToIgnoreCase(current.getMovie().getTitle())> 0){
+      for (int i = 1; i < length; i++) {
+        if (previous.getMovie().getTitle().compareToIgnoreCase(current.getMovie().getTitle()) > 0) {
           this.swap(i);
           previous = current;
           current = current.getNext();
@@ -307,19 +323,19 @@ public class MovieLinkedList implements MovieList {
   /**
    * Sorts the linked list by year movie was made.
    */
-  private void sortByYear(){
-    if (this.getLength() <2){
+  private void sortByYear() {
+    if (this.getLength() < 2) {
       return;
     }
 
 
     int length = this.getLength();
 
-    for (int j = 0; j < length; j++){
+    for (int j = 0; j < length; j++) {
       MovieNode previous = this.head;
       MovieNode current = this.head.getNext();
-      for (int i = 1; i < length; i++){
-        if (previous.getMovie().getYear()  - current.getMovie().getYear() > 0){
+      for (int i = 1; i < length; i++) {
+        if (previous.getMovie().getYear()  - current.getMovie().getYear() > 0) {
           this.swap(i);
           previous = current;
           current = current.getNext();
@@ -334,18 +350,19 @@ public class MovieLinkedList implements MovieList {
   /**
    * Sorts linked list by director first and last name.
    */
-  private void sortByDirector(){
-    if (this.getLength() <2){
+  private void sortByDirector() {
+    if (this.getLength() < 2) {
       return;
     }
 
     int length = this.getLength();
 
-    for (int j = 0; j < length; j++){
+    for (int j = 0; j < length; j++) {
       MovieNode previous = this.head;
       MovieNode current = this.head.getNext();
-      for (int i = 1; i < length; i++){
-        if (previous.getMovie().getDirector().toString().compareToIgnoreCase(current.getMovie().getDirector().toString()) > 0){
+      for (int i = 1; i < length; i++) {
+        if (previous.getMovie().getDirector().toString()
+                .compareToIgnoreCase(current.getMovie().getDirector().toString()) > 0) {
           this.swap(i);
           previous = current;
           current = current.getNext();
@@ -356,31 +373,13 @@ public class MovieLinkedList implements MovieList {
     }
   }
 
-  /**
-   * Overloading of sort function that takes in a parameter to specify sorting.
-   * @param sortBy an enum indicating how to sort the linked list
-   */
-  public void sort(SortBy sortBy){
-    if (sortBy == SortBy.TITLE){
-      this.sortByTitle();
-    }
-    if (sortBy == SortBy.YEAR){
-      this.sortByYear();
-    }
-    if (sortBy == SortBy.DIRECTOR_NAME){
-      this.sortByDirector();
-    }
-
-
-
-  }
 
   /**
-   * Prints the linked list in order
+   * Prints the linked list in order.
    */
-  public void printList(){
+  public void printList() {
     MovieNode current = this.head;
-    while (current != null){
+    while (current != null) {
       System.out.println(current.getMovie().toString());
       current = current.getNext();
 
@@ -393,7 +392,7 @@ public class MovieLinkedList implements MovieList {
    * @param otherList another movie linked list
    * @return true if the same, false otherwise
    */
-  public boolean compareLists(MovieLinkedList otherList){
+  public boolean compareLists(MovieLinkedList otherList) {
     if (this.getLength() != otherList.getLength()) {
       System.out.println(this.getLength());
       System.out.println(otherList.getLength());
@@ -401,7 +400,7 @@ public class MovieLinkedList implements MovieList {
     }
 
     while (this.head != null) {
-      if (!this.head.getMovie().equals(otherList.head.getMovie())){
+      if (!this.head.getMovie().equals(otherList.head.getMovie())) {
         System.out.println(this.head.getMovie());
         System.out.println(otherList.head.getMovie());
         return false;

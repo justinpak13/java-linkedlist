@@ -12,8 +12,12 @@ public class MovieNode {
     next = null;
   }
 
+  /**
+   * Function to add a node to the current node.
+   * @param nextNode the next node to be added
+   */
   public void addNode(MovieNode nextNode) {
-    if (this.getNext() == null){
+    if (this.getNext() == null) {
       nextNode.setNext(null);
       this.setNext(nextNode);
     } else {
